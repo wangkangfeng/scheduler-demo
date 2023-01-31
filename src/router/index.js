@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Core from '../views/scheduler/Core.vue'
+import SchedulerPage from '../views/SchedulerPage'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Core',
-    component: Core
+    name: 'SchedulerPage',
+    component: SchedulerPage
   },
   {
     path: '/about',
