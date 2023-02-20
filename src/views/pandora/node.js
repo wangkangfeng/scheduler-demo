@@ -7,9 +7,10 @@ export default {
   methods: {
     renderNode(h, field) {
       const { component, fieldOptions = {}, key, children } = field
+      console.log(fieldOptions)
       return h(
         this.components[component] || component,
-        { class: 'pandora-box', key },
+        { class: 'pandora-box', key, props: fieldOptions.props },
         (Array.isArray(children) ? children : []).filter(child => child).map(child => this.renderNode(h, child))
       )
     }
@@ -18,9 +19,11 @@ export default {
     const { component, fieldOptions = {}, key, children } = this.field
     return h(
       this.components[component] || component,
+
       {
         class: 'pandora-box',
-        key
+        key,
+        props: fieldOptions.props
       },
       (Array.isArray(children) ? children : []).filter(child => child).map(child => this.renderNode(h, child))
     )
